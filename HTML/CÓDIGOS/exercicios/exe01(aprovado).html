@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação/Reprovação</title>
+    <style>
+        .aprovado {
+            color: blue;
+        }
+        .reprovado {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Aprovação</h1>
+    <form id="formulario">
+        <label for="nota1">Nota N1:</label>
+        <input type="text" id="nota1"><br><br>
+        <label for="nota2">Nota N2:</label>
+        <input type="text" id="nota2"><br><br>
+        <button type="button" onclick="calcularMedia()">Verificar</button>
+    </form>
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularMedia() {
+            var n1 = parseInt(document.getElementById('nota1').value);
+            var n2 = parseInt(document.getElementById('nota2').value);
+            var media = (n1 + n2) / 2;
+
+            var resultado = document.getElementById('resultado');
+            if (media >= 6) {
+                resultado.textContent = 'Aprovado';
+                resultado.className = 'aprovado';
+            } else {
+                resultado.textContent = 'Reprovado';
+                resultado.className = 'reprovado';
+            }
+        }
+    </script>
+</body>
+</html>
